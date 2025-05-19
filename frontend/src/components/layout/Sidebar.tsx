@@ -38,11 +38,11 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar }: Props) => {
       label: "Học phần",
       icon: icons.subject,
     },
-    // {
-    //   path: "/admin/reports",
-    //   label: "Báo cáo",
-    //   icon: icons.reports,
-    // },
+    {
+      path: "/admin/training-program",
+      label: "Chương trình đào tạo",
+      icon: icons.reports,
+    },
     // {
     //   path: "/admin/settings",
     //   label: "Cài đặt",

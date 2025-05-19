@@ -20,6 +20,7 @@ import DashboardStudent from "./pages/Dashboard/DashboardStudent";
 import DashboardTeacher from "./pages/Dashboard/DashboardTeacher";
 import DashboardAdmin from "./pages/Dashboard/DashboardAdmin";
 import ClassDetailAdmin from "./pages/Admin/ClassDetailAdmin";
+import TrainingProgram from "./pages/Admin/TrainingProgram";
 
 export default function App() {
   return (
@@ -75,6 +76,7 @@ export default function App() {
               <Route path="user-management" element={<UserManagement />} />
               <Route path="attendance" element={<AttendanceTeacher />} />
               <Route path="class-management" element={<ClassManagement />} />
+              <Route path="training-program" element={<TrainingProgram />} />
               <Route
                 path="class-management/:id"
                 element={<ClassDetailAdmin />}

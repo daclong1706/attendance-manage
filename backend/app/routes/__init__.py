@@ -8,3 +8,4 @@ from .debug import debug_bp
 from .classes import class_bp
 from .qr import qr_bp
 from .recognition import recognition_bp
+from .training import training_bp
