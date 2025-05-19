@@ -4,3 +4,4 @@ from .class_sectionSeed import runClassSection
 from .enrollmentSeed import runEnrollment
 from .attendance_sessionSeed import runAttendanceSession
 from .attendanceSeed import runAttendance
+from .trainingprogramSeed import runTrainingProgram

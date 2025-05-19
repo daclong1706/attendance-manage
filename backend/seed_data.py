@@ -5,6 +5,7 @@ from seed import (
     runEnrollment,
     runAttendanceSession,
     runAttendance,
+    runTrainingProgram,
 )
 
 
@@ -15,6 +16,7 @@ def run():
     runEnrollment()
     runAttendanceSession()
     runAttendance()
+    runTrainingProgram()
     print("Đã thêm tất cả dữ liệu thành công!")
 if __name__ == "__main__":
     run()

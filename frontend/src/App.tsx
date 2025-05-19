@@ -45,6 +45,7 @@ export default function App() {
               <Route path="dashboard" element={<DashboardStudent />} />
               <Route path="schedule" element={<ScheduleStudent />} />
               <Route path="attendance" element={<AttendanceStudent />} />
+              <Route path="training-program" element={<TrainingProgram />} />
               {/* <Route path="/schedule" element={<SchedulePage />} /> */}
             </Route>
             <Route
@@ -61,6 +62,7 @@ export default function App() {
               <Route path="class/:id" element={<ClassDetailTeacher />} />
               <Route path="attendance" element={<AttendanceTeacher />} />
               <Route path="schedule" element={<Schedule />} />
+              <Route path="training-program" element={<TrainingProgram />} />
               {/* <Route path="/schedule" element={<SchedulePage />} /> */}
             </Route>
             <Route
