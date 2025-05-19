@@ -52,7 +52,7 @@ pip install -r requirements.txt
 <!-- ```bash
 cd backend/app/Model
 pip install -r requirements.txt
-``` --> -->
+``` -->
 
 ### Tạo database attendance_system từ MYSQL
 
@@ -117,7 +117,7 @@ Dự án này được phát hành theo giấy phép [MIT](./LICENSE).
 
 ## 📬 Liên hệ
 
-**Người phát triển:** Nguyễn Đắc Long, Nguyễn Quốc Hưng, Cao Vinh Quang, Nguyễn Bảo Huy, Nguyễn Quốc Huy
+**Người phát triển:** Nguyễn Đắc Long, Võ Trần Tiến, Nguyễn Minh Thành, Bùi Quốc Huy
 📧 **Email:**  
 🌐 **GitHub:** [https://github.com/daclong1706](https://github.com/daclong1706)
 
