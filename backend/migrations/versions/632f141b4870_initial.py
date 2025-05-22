@@ -1,8 +1,8 @@
 """Initial
 
-Revision ID: e1040b27a6ad
+Revision ID: 632f141b4870
 Revises: 
-Create Date: 2025-04-29 17:07:41.281659
+Create Date: 2025-05-22 15:14:41.429374
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e1040b27a6ad'
+revision = '632f141b4870'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,6 +24,22 @@ def upgrade():
     sa.Column('code', sa.String(length=20), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('code')
+    )
+    op.create_table('training_program',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('code', sa.String(length=20), nullable=False),
+    sa.Column('name', sa.String(length=255), nullable=False),
+    sa.Column('credits', sa.Integer(), nullable=True),
+    sa.Column('theory_hours', sa.Integer(), nullable=True),
+    sa.Column('practice_hours', sa.Integer(), nullable=True),
+    sa.Column('prerequisite_code', sa.String(length=20), nullable=True),
+    sa.Column('previous_code', sa.String(length=20), nullable=True),
+    sa.Column('equivalent_code', sa.String(length=20), nullable=True),
+    sa.Column('department', sa.String(length=20), nullable=True),
+    sa.Column('semester', sa.Integer(), nullable=True),
+    sa.Column('is_optional', sa.Boolean(), nullable=True),
+    sa.Column('note', sa.Text(), nullable=True),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -103,5 +119,6 @@ def downgrade():
     op.drop_table('attendance_sessions')
     op.drop_table('class_sections')
     op.drop_table('users')
+    op.drop_table('training_program')
     op.drop_table('subjects')
     # ### end Alembic commands ###
