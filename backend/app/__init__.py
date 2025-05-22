@@ -24,7 +24,7 @@ def create_app(config_class=Config):
 
     # Đăng ký API routes
     app.register_blueprint(auth_bp, url_prefix='/auth')
-    # app.register_blueprint(subject_bp, url_prefix='/subject')
+    app.register_blueprint(subject_bp, url_prefix='/subject')
     app.register_blueprint(user_bp, url_prefix='/user')
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(teacher_bp, url_prefix='/teacher')

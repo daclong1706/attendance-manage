@@ -2,9 +2,11 @@ import { Button, FloatingLabel } from "flowbite-react";
 import { useState } from "react";
 import LoadingModal from "../../components/modal/LoadingModal";
 import { showErrorMessage, showSuccessMessage } from "../../helper/toastHelper";
-import { useAppDispatch, useAppSelector } from "../../store/hook";
-import { updateSubject } from "../../store/slices/subjectReducer";
+// import { useAppDispatch, useAppSelector } from "../../store/hook";
+// import { updateSubject } from "../../store/slices/subjectReducer";
 import { Subject } from "../../types/subjectType";
+import { useMutation } from "@apollo/client";
+import { GET_SUBJECTS, UPDATE_SUBJECT } from "../../graphql/subject";
 
 interface EditSubjectFormProps {
   subject: Subject;
@@ -17,9 +19,29 @@ const EditSubjectForm: React.FC<EditSubjectFormProps> = ({
   isOpen,
   onClose,
 }) => {
-  const dispatch = useAppDispatch();
-  const { loading } = useAppSelector((state) => state.subject);
+  // const dispatch = useAppDispatch();
+  // const { loading } = useAppSelector((state) => state.subject);
   const [updatedData, setUpdatedData] = useState<Partial<Subject>>({});
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (Object.keys(updatedData).length === 0) {
+  //     showErrorMessage("Vui lòng nhập thông tin cần cập nhật!");
+  //     return;
+  //   }
+  //   try {
+  //     dispatch(updateSubject({ subjectId: subject.id, updatedData }));
+  //     showSuccessMessage("Cập nhật thành công");
+  //   } catch {
+  //     showErrorMessage("Lỗi khi cập nhật");
+  //   }
+
+  //   onClose();
+  // };
+
+  const [updateSubject, { loading }] = useMutation(UPDATE_SUBJECT, {
+    refetchQueries: [{ query: GET_SUBJECTS }], // Cập nhật danh sách sau khi cập nhật
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,8 +49,9 @@ const EditSubjectForm: React.FC<EditSubjectFormProps> = ({
       showErrorMessage("Vui lòng nhập thông tin cần cập nhật!");
       return;
     }
+
     try {
-      dispatch(updateSubject({ subjectId: subject.id, updatedData }));
+      await updateSubject({ variables: { id: subject.id, ...updatedData } });
       showSuccessMessage("Cập nhật thành công");
     } catch {
       showErrorMessage("Lỗi khi cập nhật");

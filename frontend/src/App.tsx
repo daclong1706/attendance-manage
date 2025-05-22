@@ -21,76 +21,80 @@ import DashboardTeacher from "./pages/Dashboard/DashboardTeacher";
 import DashboardAdmin from "./pages/Dashboard/DashboardAdmin";
 import ClassDetailAdmin from "./pages/Admin/ClassDetailAdmin";
 import TrainingProgram from "./pages/Admin/TrainingProgram";
+import { ApolloProvider } from "@apollo/client";
+import client from "./graphql/apolloClient";
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Toaster position="top-right" />
-          <Routes>
-            <Route path="/">
-              <Route index element={<Navigate to="/login" />} />
-              <Route path="login" element={<Login />} />
-            </Route>
-            <Route
-              path="/student"
-              element={
-                <ProtectedRoute role="student">
-                  <Layout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate to="/student/dashboard" />} />
-              <Route path="dashboard" element={<DashboardStudent />} />
-              <Route path="schedule" element={<ScheduleStudent />} />
-              <Route path="attendance" element={<AttendanceStudent />} />
-              <Route path="training-program" element={<TrainingProgram />} />
-              {/* <Route path="/schedule" element={<SchedulePage />} /> */}
-            </Route>
-            <Route
-              path="/teacher"
-              element={
-                <ProtectedRoute role="teacher">
-                  <Layout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate to="/teacher/dashboard" />} />
-              <Route path="dashboard" element={<DashboardTeacher />} />
-              <Route path="class" element={<ClassList />} />
-              <Route path="class/:id" element={<ClassDetailTeacher />} />
-              <Route path="attendance" element={<AttendanceTeacher />} />
-              <Route path="schedule" element={<Schedule />} />
-              <Route path="training-program" element={<TrainingProgram />} />
-              {/* <Route path="/schedule" element={<SchedulePage />} /> */}
-            </Route>
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute role="admin">
-                  <Layout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate to="/admin/dashboard" />} />
-              <Route path="dashboard" element={<DashboardAdmin />} />
-              <Route path="user-management" element={<UserManagement />} />
-              <Route path="attendance" element={<AttendanceTeacher />} />
-              <Route path="class-management" element={<ClassManagement />} />
-              <Route path="training-program" element={<TrainingProgram />} />
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Toaster position="top-right" />
+            <Routes>
+              <Route path="/">
+                <Route index element={<Navigate to="/login" />} />
+                <Route path="login" element={<Login />} />
+              </Route>
               <Route
-                path="class-management/:id"
-                element={<ClassDetailAdmin />}
-              />
+                path="/student"
+                element={
+                  <ProtectedRoute role="student">
+                    <Layout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate to="/student/dashboard" />} />
+                <Route path="dashboard" element={<DashboardStudent />} />
+                <Route path="schedule" element={<ScheduleStudent />} />
+                <Route path="attendance" element={<AttendanceStudent />} />
+                <Route path="training-program" element={<TrainingProgram />} />
+                {/* <Route path="/schedule" element={<SchedulePage />} /> */}
+              </Route>
               <Route
-                path="subject-management"
-                element={<SubjectManagement />}
-              />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </Provider>
-    </ThemeProvider>
+                path="/teacher"
+                element={
+                  <ProtectedRoute role="teacher">
+                    <Layout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate to="/teacher/dashboard" />} />
+                <Route path="dashboard" element={<DashboardTeacher />} />
+                <Route path="class" element={<ClassList />} />
+                <Route path="class/:id" element={<ClassDetailTeacher />} />
+                <Route path="attendance" element={<AttendanceTeacher />} />
+                <Route path="schedule" element={<Schedule />} />
+                <Route path="training-program" element={<TrainingProgram />} />
+                {/* <Route path="/schedule" element={<SchedulePage />} /> */}
+              </Route>
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute role="admin">
+                    <Layout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate to="/admin/dashboard" />} />
+                <Route path="dashboard" element={<DashboardAdmin />} />
+                <Route path="user-management" element={<UserManagement />} />
+                <Route path="attendance" element={<AttendanceTeacher />} />
+                <Route path="class-management" element={<ClassManagement />} />
+                <Route path="training-program" element={<TrainingProgram />} />
+                <Route
+                  path="class-management/:id"
+                  element={<ClassDetailAdmin />}
+                />
+                <Route
+                  path="subject-management"
+                  element={<SubjectManagement />}
+                />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }

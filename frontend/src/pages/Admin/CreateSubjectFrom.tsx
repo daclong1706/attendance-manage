@@ -1,12 +1,14 @@
 import { Button, FloatingLabel } from "flowbite-react";
 import { FormEvent, useState } from "react";
-import LoadingModal from "../../components/modal/LoadingModal";
 import { showErrorMessage, showSuccessMessage } from "../../helper/toastHelper";
-import { useAppDispatch, useAppSelector } from "../../store/hook";
-import {
-  createSubject,
-  fetchAllSubjects,
-} from "../../store/slices/subjectReducer";
+import LoadingModal from "../../components/modal/LoadingModal";
+// import { useAppDispatch, useAppSelector } from "../../store/hook";
+// import {
+//   createSubject,
+//   fetchAllSubjects,
+// } from "../../store/slices/subjectReducer";
+import { useMutation } from "@apollo/client";
+import { CREATE_SUBJECT, GET_SUBJECTS } from "../../graphql/subject";
 
 interface CreateSubjectFormProps {
   isOpen: boolean;
@@ -17,24 +19,39 @@ const CreateSubjectForm: React.FC<CreateSubjectFormProps> = ({
   isOpen,
   onClose,
 }) => {
-  const dispatch = useAppDispatch();
-  const { loading } = useAppSelector((state) => state.subject);
+  // const dispatch = useAppDispatch();
+  // const { loading } = useAppSelector((state) => state.subject);
   const [subjectData, setSubjectData] = useState({
     code: "",
     name: "",
   });
 
+  const [createSubject, { loading }] = useMutation(CREATE_SUBJECT, {
+    refetchQueries: [{ query: GET_SUBJECTS }],
+  });
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      await dispatch(createSubject(subjectData)).unwrap();
-      dispatch(fetchAllSubjects());
+      await createSubject({ variables: subjectData });
       showSuccessMessage("Thêm học phần thành công");
     } catch {
       showErrorMessage("Lỗi khi thêm học phần");
     }
     onClose();
   };
+
+  // const handleSubmit = async (e: FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     await dispatch(createSubject(subjectData)).unwrap();
+  //     dispatch(fetchAllSubjects());
+  //     showSuccessMessage("Thêm học phần thành công");
+  //   } catch {
+  //     showErrorMessage("Lỗi khi thêm học phần");
+  //   }
+  //   onClose();
+  // };
 
   if (!isOpen) return false;
 

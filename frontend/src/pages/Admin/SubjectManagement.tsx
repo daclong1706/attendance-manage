@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import { useTable } from "../../components/hook/useTable";
 import PaginationComponent from "../../components/ui/PanigationComponent";
@@ -8,35 +8,38 @@ import TableComponent from "../../components/ui/table/TableComponent";
 import TableHeadCellComponent from "../../components/ui/table/TableHeadCellComponent";
 import TableHeadComponent from "../../components/ui/table/TableHeadComponent";
 import TableRowComponent from "../../components/ui/table/TableRowComponent";
-import { useAppDispatch, useAppSelector } from "../../store/hook";
+// import { useAppDispatch, useAppSelector } from "../../store/hook";
 
 import { Button } from "flowbite-react";
 import LoadingModal from "../../components/modal/LoadingModal";
 import SearchComponent from "../../components/ui/SearchComponent";
-import { fetchAllSubjects } from "../../store/slices/subjectReducer";
+// import { fetchAllSubjects } from "../../store/slices/subjectReducer";
 import { Subject } from "../../types/subjectType";
 import ActionComponent from "../../components/ui/ActionComponent";
 import DeleteModal from "../../components/modal/DeleteModal";
 import CreateSubjectForm from "./CreateSubjectFrom";
 import EditSubjectForm from "./EditSubjectForm";
+import { useQuery } from "@apollo/client";
+import { GET_SUBJECTS } from "../../graphql/subject";
 
 const SubjectManagement = () => {
   const itemsPerPage = 10;
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
-  const { subjects, loading } = useAppSelector((state) => state.subject);
+  // const { subjects } = useAppSelector((state) => state.subject);
+  const { loading, data } = useQuery<{ subjects: Subject[] }>(GET_SUBJECTS);
 
-  useEffect(() => {
-    dispatch(fetchAllSubjects());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAllSubjects());
+  // }, [dispatch]);
 
   const {
-    paginatedData: data,
+    paginatedData: subjects,
     totalItems,
     currentPage,
     setCurrentPage,
@@ -45,7 +48,7 @@ const SubjectManagement = () => {
     handleSort,
     sortColumn,
     sortDirection,
-  } = useTable({ data: subjects || [], itemsPerPage });
+  } = useTable({ data: data?.subjects || [], itemsPerPage });
 
   return (
     <div className="mx-auto hidden max-w-6xl p-4 md:block">
@@ -94,8 +97,8 @@ const SubjectManagement = () => {
             </TableRowComponent>
           </TableHeadComponent>
           <TableBodyComponent>
-            {data.length > 0 ? (
-              data.map((d) => (
+            {subjects.length > 0 ? (
+              subjects.map((d) => (
                 <TableRowComponent
                   key={d.id}
                   className="bg-gray-50 hover:bg-yellow-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
