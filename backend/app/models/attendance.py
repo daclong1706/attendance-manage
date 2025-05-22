@@ -36,9 +36,11 @@ class Attendance(db.Model):
         db.Integer, db.ForeignKey("attendance_sessions.id"), nullable=False
     )
     status = db.Column(
-        db.Enum("present", "absent", "excused_absence", "late", "not_recorded"),
+        db.Enum("present", "absent", "excused_absence", "late", "not_recorded", name="attendance_status"),
         default="not_recorded",
+        nullable=False
     )
+
     checked_at = db.Column(db.DateTime)
 
     student = db.relationship("User", backref="attendances")
