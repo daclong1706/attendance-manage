@@ -124,7 +124,7 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar }: Props) => {
                     className={({ isActive }) =>
                       `flex items-center rounded-md py-4 transition duration-300 ${
                         isOpenSidebar ? "space-x-2 pl-4" : "justify-center"
-                      } ${isActive ? "text-indigo-500" : "hover:bg-indigo-300"}`
+                      } ${isActive ? "text-yellow-500" : "hover:bg-yellow-300"}`
                     }
                     title={item.label}
                     onClick={toggleSidebar}
@@ -163,7 +163,7 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar }: Props) => {
         <div className="mx-3 my-6 flex w-full flex-col rounded-md p-2 shadow-2xl dark:bg-gray-800 dark:shadow-none">
           <button
             onClick={toggleSidebarCollapsed}
-            className="mb-6 flex items-center justify-center rounded-md p-2 hover:text-indigo-500 dark:text-white"
+            className="mb-6 flex items-center justify-center rounded-md p-2 hover:text-yellow-500 dark:text-white"
           >
             {isSidebarCollapsed ? (
               <LuPanelLeftOpen className="h-5 w-5" />
@@ -182,7 +182,7 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar }: Props) => {
                   `flex w-full items-center rounded-md ${
                     isSidebarCollapsed ? "justify-center" : "space-x-2 pl-4"
                   } py-4 transition duration-300 ${
-                    isActive ? "text-indigo-500" : "hover:bg-indigo-300"
+                    isActive ? "text-yellow-500" : "hover:bg-yellow-300"
                   }`
                 }
                 title={link.label}

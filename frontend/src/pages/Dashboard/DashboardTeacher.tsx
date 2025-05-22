@@ -78,7 +78,7 @@ const DashboardTeacher = () => {
           <div className="col-span-2 mt-2 rounded-2xl bg-white shadow dark:bg-gray-700">
             <div className="block items-center justify-center md:flex">
               <div className="mx-12 my-6 text-left">
-                <h1 className="mb-4 bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-2xl font-extrabold text-transparent uppercase">
+                <h1 className="mb-4 bg-gradient-to-r from-yellow-500 to-pink-600 bg-clip-text text-2xl font-extrabold text-transparent uppercase">
                   Chào mừng đến với Hệ thống điểm danh trực tuyến
                 </h1>
                 <p className="text-lg font-medium">

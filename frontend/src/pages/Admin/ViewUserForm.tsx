@@ -30,7 +30,7 @@ const ViewUserForm: React.FC<ViewUserFormProps> = ({
                   alt={user.name}
                 />
               ) : (
-                <div className="flex h-64 w-42 items-center justify-center rounded-xl bg-indigo-200">
+                <div className="flex h-64 w-42 items-center justify-center rounded-xl bg-yellow-200">
                   {user?.name
                     ? user.name.trim().split(" ").slice(-1)[0][0].toUpperCase()
                     : ""}

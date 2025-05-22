@@ -107,7 +107,7 @@ const Home = () => {
               data.map((user) => (
                 <TableRowComponent
                   key={user.id}
-                  className="bg-gray-50 hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+                  className="bg-gray-50 hover:bg-yellow-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
                 >
                   <TableCellComponent
                     className="rounded-l-xl border-l-2"
@@ -123,7 +123,7 @@ const Home = () => {
                         alt={user.name}
                       />
                     ) : (
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-200">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-200">
                         {user?.name
                           ? user.name
                               .trim()

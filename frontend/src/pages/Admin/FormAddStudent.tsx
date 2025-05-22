@@ -61,11 +61,11 @@ const FromAddStudent: React.FC<FromAddStudentProps> = ({
         {/* Hiển thị danh sách sinh viên có liên quan */}
         <div className="relative">
           {searchTerm && (
-            <ul className="absolute z-50 mt-2 max-h-96 w-full overflow-y-auto rounded-xl border border-indigo-500 bg-gray-100">
+            <ul className="absolute z-50 mt-2 max-h-96 w-full overflow-y-auto rounded-xl border border-yellow-500 bg-gray-100">
               {filteredStudents.map((student) => (
                 <li
                   key={student.id}
-                  className="cursor-pointer rounded-xl px-4 py-2 hover:bg-indigo-300"
+                  className="cursor-pointer rounded-xl px-4 py-2 hover:bg-yellow-300"
                   onClick={() => handleSelectStudent(student.id)}
                 >
                   {student.name} ({student.mssv}) - {student.email}
@@ -82,7 +82,7 @@ const FromAddStudent: React.FC<FromAddStudentProps> = ({
             {selectedStudents.map((mssv) => (
               <div
                 key={mssv}
-                className="flex items-center gap-2 rounded-xl bg-indigo-500 px-3 py-1 text-sm text-white"
+                className="flex items-center gap-2 rounded-xl bg-yellow-500 px-3 py-1 text-sm text-white"
               >
                 {mssv}
                 <button

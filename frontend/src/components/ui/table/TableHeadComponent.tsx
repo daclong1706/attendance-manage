@@ -11,7 +11,7 @@ const TableHeadComponent: React.FC<TableHeadProps> = ({
 }) => {
   return (
     <thead
-      className={`bg-indigo-400 text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 ${className}`}
+      className={`bg-yellow-400 text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 ${className}`}
     >
       {children}
     </thead>

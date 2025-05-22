@@ -48,7 +48,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({
   return (
     <div className="mt-4 overflow-x-auto">
       <TableComponent className="w-full border-separate rounded-2xl text-left text-sm text-gray-500 dark:text-gray-400">
-        <TableHeadComponent className="text-center dark:bg-indigo-800">
+        <TableHeadComponent className="text-center dark:bg-yellow-800">
           <TableRowComponent>
             <th className="px-4 py-2">Phòng</th>
             {daysOfWeek.map((day, index) => (
@@ -66,7 +66,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({
         </TableHeadComponent>
         <tbody>
           {rooms.map((room) => (
-            <tr key={room} className="bg-indigo-100">
+            <tr key={room} className="bg-yellow-100">
               <td className="px-4 py-2 font-semibold">{room}</td>
               {daysOfWeek.map((day) => {
                 const entry = scheduleData.find(
