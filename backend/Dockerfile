@@ -6,4 +6,4 @@ COPY . /app
 RUN apt-get update && apt-get install -y libzbar0
 RUN pip install -r requirements.txt
 
-CMD ["gunicorn", "run:app"]
+CMD ["gunicorn", "run:app", "--bind", "0.0.0.0:$PORT"]
