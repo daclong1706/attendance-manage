@@ -63,6 +63,11 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar }: Props) => {
       label: "Thời khóa biểu",
       icon: icons.scheduleManagement,
     },
+    {
+      path: "/teacher/training-program",
+      label: "Chương trình đào tạo",
+      icon: icons.reports,
+    },
     // { path: "/teacher/reports", label: "Báo cáo lớp học", icon: icons.reports },
   ];
 
@@ -72,6 +77,11 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar }: Props) => {
       path: "/student/schedule",
       label: "Lịch học",
       icon: icons.scheduleManagement,
+    },
+    {
+      path: "/student/training-program",
+      label: "Chương trình đào tạo",
+      icon: icons.reports,
     },
     // {
     //   path: "/student/attendance-status",

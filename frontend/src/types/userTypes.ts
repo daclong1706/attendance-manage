@@ -5,5 +5,6 @@ export interface User {
   email: string;
   mssv: string;
   role: string;
+  department: string;
   created_at: Date;
 }

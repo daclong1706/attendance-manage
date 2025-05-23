@@ -26,7 +26,10 @@ def login():
                 "id": user.id,
                 "email": user.email,
                 "role": user.role,
-                "name": user.name
+                "name": user.name,
+                "mssv": user.mssv,
+                "department": user.department,
+                "created_at": user.created_at
             }
         }
     }), 200
