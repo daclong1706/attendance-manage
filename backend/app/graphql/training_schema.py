@@ -7,13 +7,16 @@ from app.extensions import db
 class TrainingProgramType(SQLAlchemyObjectType):
     class Meta:
         model = TrainingProgram
+    
+
 
 # Truy vấn (GET)
 class Query(graphene.ObjectType):
     training_programs = graphene.List(TrainingProgramType)
 
     def resolve_training_programs(self, info):
-        return TrainingProgram.query.all()
+        programs = TrainingProgram.query.all()
+        return programs
 
 # Mutation (CREATE, UPDATE, DELETE)
 class CreateTraining(graphene.Mutation):

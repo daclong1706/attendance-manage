@@ -5,8 +5,8 @@ from app.models import *
 from app.routes import auth_bp, subject_bp, user_bp, admin_bp, teacher_bp, student_bp, debug_bp, class_bp, qr_bp, recognition_bp, training_bp
 from flask_cors import CORS
 from datetime import timedelta
-# from flask_graphql import GraphQLView
-# from app.graphql import schema
+from flask_graphql import GraphQLView
+from app.graphql import schema
 
 
 def create_app(config_class=Config):
@@ -37,9 +37,9 @@ def create_app(config_class=Config):
     
     app.register_blueprint(training_bp, url_prefix="/training")
     
-    # app.add_url_rule(
-    #     "/graphql",
-    #     view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
-    # )
+    app.add_url_rule(
+        "/graphql",
+        view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
+    )
 
     return app
