@@ -1,5 +1,10 @@
 import pandas as pd
 import os
+import numpy as np
+# from app.Model.scripts.capture_camera import capture_face_api
+# from deepface import DeepFace
+# from app.Model.scripts.calculate_threshold import load_embeddings, generate_pairs, calculate_optimal_threshold
+from app.Model.scripts.register_user import register_student
 from flask import Blueprint, request, jsonify, g
 from werkzeug.utils import secure_filename
 from datetime import datetime
@@ -110,3 +115,25 @@ def process_attendance(student_id, data):
             "mssv": student.mssv
         }
         }), 200
+
+@recognition_bp.route("/register-user", methods=["POST"])
+def register_user_api():
+    image_files = request.files.getlist("images")  # Nhận danh sách ảnh
+    json_data = request.form.get("data")
+
+    if not image_files or len(image_files) < 5:
+        return jsonify({"message": "Hãy gửi đủ 5 ảnh!"}), 400
+    if not json_data:
+        return jsonify({"message": "No JSON data provided"}), 400
+
+    data = json.loads(json_data)
+    user_id = data.get("user_id")
+
+    if not user_id:
+        return jsonify({"message": "User ID is required"}), 400
+
+    register_student(user_id, image_files)
+
+    return jsonify({"message": f"User {user_id} registered successfully!"}), 200
+
+

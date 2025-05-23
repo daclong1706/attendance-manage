@@ -23,6 +23,30 @@ class RecognitionAPI {
       console.error(error);
     }
   }
+
+  async registerUser(imageBlobs: Blob[], userId: string) {
+    try {
+      if (imageBlobs.length < 5) throw new Error("Cần gửi đủ 5 ảnh!");
+      if (!userId) throw new Error("User ID không được cung cấp!");
+
+      const formData = new FormData();
+      imageBlobs.forEach((blob, index) => {
+        formData.append("images", blob, `image${index + 1}.jpg`);
+      });
+      formData.append("data", JSON.stringify({ user_id: userId }));
+
+      // Gửi tất cả ảnh trong một request
+      const response = await axiosClient.post(
+        "/recognition/register-user",
+        formData,
+      );
+
+      console.log("Register Result:", response);
+      return response.data;
+    } catch (error) {
+      console.error("Lỗi khi đăng ký:", error);
+    }
+  }
 }
 
 const recognitionAPI = new RecognitionAPI();
