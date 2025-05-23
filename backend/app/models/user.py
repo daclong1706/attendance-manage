@@ -9,6 +9,6 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     role = db.Column(db.Enum('student', 'teacher', 'admin', name="user_roles"), nullable=False)
     created_at = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp())
-    department = db.Column(db.String(255), nullable=False)
+    # department = db.Column(db.String(255), nullable=True)
     def __repr__(self):
         return f"User('{self.email}', '{self.role}')"

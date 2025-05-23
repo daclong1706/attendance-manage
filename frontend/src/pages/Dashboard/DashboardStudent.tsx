@@ -166,7 +166,7 @@ console.log("user trong Redux:", user);
   {/* Các thông tin khác */}
   <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-0 md:w-auto">
     <div><span className="font-semibold">MSSV:</span> {user?.mssv || "Chưa có"}</div>
-    <div><span className="font-semibold">Khoa:</span> {user?.department || "Chưa có"}</div>
+    {/* <div><span className="font-semibold">Khoa:</span> {user?.department || "Chưa có"}</div> */}
     <div>
       <span className="font-semibold">Ngày tạo:</span>{" "}
       {user?.created_at ? new Date(user.created_at).toLocaleDateString("vi-VN") : "Chưa có"}

@@ -28,7 +28,7 @@ def login():
                 "role": user.role,
                 "name": user.name,
                 "mssv": user.mssv,
-                "department": user.department,
+                #"department": user.department,
                 "created_at": user.created_at
             }
         }
