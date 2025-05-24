@@ -98,6 +98,26 @@ def capture_face(save_dir, num_images=5, img_size=(160, 160)):
 
     cap.release()
     cv2.destroyAllWindows()
+    
+def capture_face_api(image, save_dir, img_size=(160, 160)):
+    os.makedirs(save_dir, exist_ok=True)
+
+    # Đọc ảnh từ file nhận được
+    img = cv2.imdecode(np.frombuffer(image.read(), np.uint8), cv2.IMREAD_COLOR)
+
+    # Kiểm tra xem ảnh có được đọc không
+    if img is None:
+        raise ValueError("Không thể đọc ảnh từ frontend.")
+
+    # Thay đổi kích thước ảnh khuôn mặt
+    face_resized = cv2.resize(img, img_size)
+
+    img_name = f"face_{int(time.time())}.png"
+    img_path = os.path.join(save_dir, img_name)
+    
+    # Lưu ảnh đã xử lý
+    cv2.imwrite(img_path, face_resized)
+    return img_path
 
 
 # Kiểm tra GPU và chạy chương trình

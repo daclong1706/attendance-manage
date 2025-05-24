@@ -1,4 +1,4 @@
-import { Datepicker } from "flowbite-react";
+import { Button, Datepicker } from "flowbite-react";
 import { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import LoadingModal from "../../components/modal/LoadingModal";
@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hook";
 import { fetchAllClasses } from "../../store/slices/classReducer";
 import { fetchAttendanceAll } from "../../store/slices/studentReducer";
 import Human from "../../assets/Human.png";
+import RegisterUser from "../Student/RegisterUser";
 
 const DashboardStudent = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ const DashboardStudent = () => {
   const { attendanceAll, loading } = useAppSelector((state) => state.student);
   const user = useAppSelector((state) => state.auth.user);
   const { classes } = useAppSelector((state) => state.class);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllClasses());
@@ -141,11 +143,11 @@ const DashboardStudent = () => {
       });
     }
   }, [attendanceAll, classes]);
-console.log("user trong Redux:", user);
 
   return (
     <div className="mx-auto mt-4 max-w-6xl p-4 md:block">
       <div className="overflow-x-auto">
+
         <div className="mb-6 flex flex-col items-center justify-between rounded-2xl bg-white p-6 shadow dark:bg-gray-700 dark:text-white md:flex-row">
   {/* Avatar giả lập bằng Dicebear */}
   <div className="flex items-center gap-4">
@@ -173,7 +175,50 @@ console.log("user trong Redux:", user);
     </div>
   </div>
 </div>
+<!-- 
+        <div className="mb-6 flex flex-col items-center justify-between rounded-2xl bg-white p-6 shadow md:flex-row dark:bg-gray-700 dark:text-white">
+          {/* Avatar giả lập bằng Dicebear */}
+          <div className="flex items-center gap-4">
+            <img
+              src={`https://api.dicebear.com/7.x/initials/svg?seed=${user?.name || "A"}`}
+              alt="avatar"
+              className="h-20 w-20 rounded-full border-2 border-yellow-400 shadow"
+            />
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                {user?.name || "Chưa có tên"}
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-300">
+                {user?.email || "Chưa có email"}
+              </p>
+              <span className="mt-1 inline-block rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white shadow">
+                {user?.role === "student" ? "Sinh viên" : user?.role}
+              </span>
+            </div>
+          </div> -->
 
+
+          {/* Các thông tin khác */}
+          <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:mt-0 md:w-auto lg:grid-cols-3">
+            <div>
+              <span className="font-semibold">MSSV:</span>{" "}
+              {user?.mssv || "Chưa có"}
+            </div>
+            <div>
+              <span className="font-semibold">Khoa:</span>{" "}
+              {user?.department || "Chưa có"}
+            </div>
+            <div>
+              <span className="font-semibold">Ngày tạo:</span>{" "}
+              {user?.created_at
+                ? new Date(user.created_at).toLocaleDateString("vi-VN")
+                : "Chưa có"}
+            </div>
+          </div>
+          <Button onClick={() => setIsModalOpen(true)}>
+            Đăng ký khuôn mặt
+          </Button>
+        </div>
 
         <div className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:items-start">
           <div className="col-span-2 mt-2 rounded-2xl bg-white shadow dark:bg-gray-700">
@@ -270,6 +315,7 @@ console.log("user trong Redux:", user);
           </div>
         </div>
         <LoadingModal isOpen={loading} />
+        {isModalOpen && <RegisterUser onClose={() => setIsModalOpen(false)} />}
       </div>
     </div>
   );

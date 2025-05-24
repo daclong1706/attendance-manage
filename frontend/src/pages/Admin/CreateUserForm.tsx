@@ -86,9 +86,15 @@ const CreateUserForm: React.FC<CreateUserFormProps> = ({ isOpen, onClose }) => {
                 setUserData({ ...userData, role: e.target.value })
               }
             >
-              <option value="admin">Admin</option>
-              <option value="teacher">Teacher</option>
-              <option value="student">Student</option>
+              <option value="admin" className="text-black">
+                Admin
+              </option>
+              <option value="teacher" className="text-black">
+                Teacher
+              </option>
+              <option value="student" className="text-black">
+                Student
+              </option>
             </Select>
           </div>
           <div className="mt-6 flex justify-end gap-2">

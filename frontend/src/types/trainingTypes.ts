@@ -1,16 +1,15 @@
 export interface TrainingSubject {
-    id: number;
-    code: string;
-    name: string;
-    credits: number;
-    theory_hours: number;
-    practice_hours: number;
-    semester: number;
-    is_optional: boolean;
-    prerequisite_code?: string;
-    previous_code?: string;
-    equivalent_code?: string;
-    department: string;
-    note?: string;
-  }
-  
+  id: number;
+  code: string;
+  name: string;
+  credits: number;
+  theoryHours: number;
+  practiceHours: number;
+  semester: number;
+  isOptional: boolean;
+  prerequisiteCode?: string;
+  previousCode?: string;
+  equivalentCode?: string;
+  department: string;
+  note?: string;
+}
