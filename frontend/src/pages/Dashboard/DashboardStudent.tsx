@@ -147,37 +147,7 @@ const DashboardStudent = () => {
   return (
     <div className="mx-auto mt-4 max-w-6xl p-4 md:block">
       <div className="overflow-x-auto">
-
-        <div className="mb-6 flex flex-col items-center justify-between rounded-2xl bg-white p-6 shadow dark:bg-gray-700 dark:text-white md:flex-row">
-  {/* Avatar giả lập bằng Dicebear */}
-  <div className="flex items-center gap-4">
-    <img
-      src={`https://api.dicebear.com/7.x/initials/svg?seed=${user?.name || "A"}`}
-      alt="avatar"
-      className="h-20 w-20 rounded-full border-2 border-yellow-400 shadow"
-    />
-    <div>
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{user?.name || "Chưa có tên"}</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-300">{user?.email || "Chưa có email"}</p>
-      <span className="inline-block mt-1 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white shadow">
-        {user?.role === "student" ? "Sinh viên" : user?.role}
-      </span>
-    </div>
-  </div>
-
-  {/* Các thông tin khác */}
-  <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-0 md:w-auto">
-    <div><span className="font-semibold">MSSV:</span> {user?.mssv || "Chưa có"}</div>
-    {/* <div><span className="font-semibold">Khoa:</span> {user?.department || "Chưa có"}</div> */}
-    <div>
-      <span className="font-semibold">Ngày tạo:</span>{" "}
-      {user?.created_at ? new Date(user.created_at).toLocaleDateString("vi-VN") : "Chưa có"}
-    </div>
-  </div>
-</div>
-<!-- 
         <div className="mb-6 flex flex-col items-center justify-between rounded-2xl bg-white p-6 shadow md:flex-row dark:bg-gray-700 dark:text-white">
-          {/* Avatar giả lập bằng Dicebear */}
           <div className="flex items-center gap-4">
             <img
               src={`https://api.dicebear.com/7.x/initials/svg?seed=${user?.name || "A"}`}
@@ -195,8 +165,7 @@ const DashboardStudent = () => {
                 {user?.role === "student" ? "Sinh viên" : user?.role}
               </span>
             </div>
-          </div> -->
-
+          </div>
 
           {/* Các thông tin khác */}
           <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:mt-0 md:w-auto lg:grid-cols-3">
