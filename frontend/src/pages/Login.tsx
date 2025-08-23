@@ -1,10 +1,4 @@
-import {
-  Button,
-  Checkbox,
-  Label,
-  TextInput,
-  ThemeConfig,
-} from "flowbite-react";
+import { Button, Label, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingModal from "../components/modal/LoadingModal";
@@ -32,7 +26,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-tr from-pink-400 via-amber-100 to-yellow-600">
+    <div className="h-screen w-screen bg-gradient-to-tr from-pink-400 via-amber-100 to-indigo-600">
       <div className="flex h-full w-full items-center justify-center bg-gray-200/80">
         <div className="mx-6 w-full rounded-md bg-white p-8 text-black md:mx-0 md:w-1/2 md:p-20">
           <div className="my-2 text-center">

@@ -256,7 +256,7 @@ const AttendanceTeacher = () => {
 
       <div className="relative my-4 overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-          <thead className="bg-red bg-yellow-300 text-xs text-gray-900 uppercase dark:bg-yellow-700 dark:text-gray-100">
+          <thead className="bg-red bg-indigo-300 text-xs text-gray-900 uppercase dark:bg-indigo-700 dark:text-gray-100">
             <tr>
               <th className="px-6 py-3">STT</th>
               <th className="px-6 py-3">Mã số sinh viên</th>
@@ -301,7 +301,7 @@ const AttendanceTeacher = () => {
                 </td>
                 <td className="px-6 py-4 text-center">
                   <Checkbox
-                    color="yellow"
+                    color="indigo"
                     checked={user.attendance_status === "late"}
                     onChange={() => handleStatusChange(user.id, "late")}
                   />
@@ -332,7 +332,7 @@ const AttendanceTeacher = () => {
         <Button color="green" onClick={handleExportData}>
           Xuất danh sách
         </Button>
-        <Button color="yellow" outline onClick={handleMarkAllPresent}>
+        <Button color="indigo" outline onClick={handleMarkAllPresent}>
           Điểm danh tất cả
         </Button>
       </div>

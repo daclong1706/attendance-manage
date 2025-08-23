@@ -48,7 +48,7 @@ const ClassDetailTeacher = () => {
           🟣 Thời gian bắt đầu:{" "}
           <span>{formatDateDDMMYY(classDetail.start_date)}</span>
         </p>
-        <p className="mb-6 text-lg font-semibold text-yellow-300">
+        <p className="mb-6 text-lg font-semibold text-indigo-300">
           🟡 Thời gian kết thúc:{" "}
           <span>{formatDateDDMMYY(classDetail.end_date)}</span>
         </p>
@@ -78,7 +78,7 @@ const ClassDetailTeacher = () => {
               classDetail.students.map((student, index) => (
                 <TableRowComponent
                   key={student.id}
-                  className="bg-gray-50 hover:bg-yellow-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+                  className="bg-gray-50 hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
                 >
                   <TableCellComponent className="rounded-l-xl border-l-2">
                     {index + 1}

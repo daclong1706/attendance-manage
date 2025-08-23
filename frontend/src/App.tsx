@@ -23,6 +23,7 @@ import ClassDetailAdmin from "./pages/Admin/ClassDetailAdmin";
 import TrainingProgram from "./pages/Admin/TrainingProgram";
 import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apolloClient";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
   return (
@@ -33,7 +34,7 @@ export default function App() {
             <Toaster position="top-right" />
             <Routes>
               <Route path="/">
-                <Route index element={<Navigate to="/login" />} />
+                <Route index element={<HomePage />} />
                 <Route path="login" element={<Login />} />
               </Route>
               <Route

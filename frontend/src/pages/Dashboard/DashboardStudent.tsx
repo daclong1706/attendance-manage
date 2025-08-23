@@ -152,7 +152,7 @@ const DashboardStudent = () => {
             <img
               src={`https://api.dicebear.com/7.x/initials/svg?seed=${user?.name || "A"}`}
               alt="avatar"
-              className="h-20 w-20 rounded-full border-2 border-yellow-400 shadow"
+              className="h-20 w-20 rounded-full border-2 border-indigo-400 shadow"
             />
             <div>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -161,7 +161,7 @@ const DashboardStudent = () => {
               <p className="text-sm text-gray-500 dark:text-gray-300">
                 {user?.email || "Chưa có email"}
               </p>
-              <span className="mt-1 inline-block rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white shadow">
+              <span className="mt-1 inline-block rounded-full bg-indigo-500 px-3 py-1 text-xs font-semibold text-white shadow">
                 {user?.role === "student" ? "Sinh viên" : user?.role}
               </span>
             </div>
@@ -193,7 +193,7 @@ const DashboardStudent = () => {
           <div className="col-span-2 mt-2 rounded-2xl bg-white shadow dark:bg-gray-700">
             <div className="block items-center justify-center md:flex">
               <div className="mx-12 my-6 text-left">
-                <h1 className="mb-4 bg-gradient-to-r from-yellow-500 to-pink-600 bg-clip-text text-2xl font-extrabold text-transparent uppercase">
+                <h1 className="mb-4 bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-2xl font-extrabold text-transparent uppercase">
                   Chào mừng đến với Hệ thống điểm danh trực tuyến
                 </h1>
                 <p className="text-lg font-medium">
@@ -231,7 +231,7 @@ const DashboardStudent = () => {
           <div className="mb-12 flex flex-col gap-2">
             <div className="rounded-2xl bg-white shadow dark:bg-gray-700">
               <table className="w-full rounded-2xl text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-                <thead className="bg-yellow-300 text-xs text-gray-900 uppercase dark:bg-yellow-700 dark:text-gray-100">
+                <thead className="bg-indigo-300 text-xs text-gray-900 uppercase dark:bg-indigo-700 dark:text-gray-100">
                   <tr>
                     <th className="px-6 py-3">STT</th>
                     <th className="px-6 py-3">Môn học</th>

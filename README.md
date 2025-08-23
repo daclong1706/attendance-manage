@@ -8,6 +8,26 @@ Hệ thống điểm danh thông minh sử dụng **nhận diện khuôn mặt**
 - Frontend: React
 - Database: MySQL
 
+## 🚀 Demo
+
+🔗 [Xem demo tại đây](https://attendance-manage.vercel.app/)
+
+### 🧑‍💻 Tài khoản mẫu
+
+- **Admin**
+
+  - Email: `admin@example.com`
+  - Password: `admin123`
+
+- **Teacher**
+
+  - Email: `teacher1@example.com`
+  - Password: `teacher123`
+
+- **Student**
+  - Email: `student1@example.com`
+  - Password: `student123`
+
 ## 🎯 Tính năng chính
 
 - Đăng nhập / Đăng ký người dùng
